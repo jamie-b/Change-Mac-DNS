@@ -1,18 +1,18 @@
 #!/bin/bash
 echo "Current DNS servers for Wi-Fi adapter:"
-sudo networksetup -getdnsservers Wi-Fi
+networksetup -getdnsservers Wi-Fi
 echo 
 echo "Clearing DNS Server settings for Wi-Fi adapter"
-sudo networksetup -setdnsservers Wi-Fi empty
+networksetup -setdnsservers Wi-Fi empty
 echo 
 echo "Setting new DNS Server settings for Wi-Fi adapter"
-sudo networksetup -setdnsservers Wi-Fi 9.9.9.9 8.8.8.8
+networksetup -setdnsservers Wi-Fi 9.9.9.9 8.8.8.8
 echo 
 echo "New DNS Servers configured as:"
-sudo networksetup -getdnsservers Wi-Fi
+networksetup -getdnsservers Wi-Fi
 echo
 echo "Flushing DNS cache"
-sudo killall -HUP mDNSResponder
+killall -HUP mDNSResponder
 echo 
 echo "Confirming resolver configuration:"
 scutil --dns | grep 'nameserver\[[0-9]*\]'
