@@ -12,7 +12,7 @@ echo "New DNS Servers configured as:"
 networksetup -getdnsservers Wi-Fi
 echo
 echo "Flushing DNS cache"
-killall -HUP mDNSResponder
+sudo killall -HUP mDNSResponder
 echo 
 echo "Confirming resolver configuration:"
 scutil --dns | grep 'nameserver\[[0-9]*\]'
